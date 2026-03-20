@@ -2,8 +2,8 @@
 
 # Learning Resources
 
-* [CUT&Tag Data Processing and Analysis Tutorial [Ye Zheng et al 2020]](https://yezhengstat.github.io/CUTTag_tutorial/)
-* [Comprehensive Guide to Understanding and Using CUT&Tag Assays](https://www.activemotif.com/blog-cut-tag)
-* [Epicypher's Cut&Tag Documentation](https://support.epicypher.com/docs/cut-and-tag)
-* [NBIS epigenomics workshop (Advanced ChIP method tutorial)](https://nbis-workshop-epigenomics.readthedocs.io/en/latest/content/tutorials/quantitative_chip_tutorials.html)
-* [Cut & Run NFcore pipeline](https://nf-co.re/cutandrun/3.2.2/)
+-   [CUT&Tag Data Processing and Analysis Tutorial \[Ye Zheng et al 2020\]](https://yezhengstat.github.io/CUTTag_tutorial/)
+-   [Comprehensive Guide to Understanding and Using CUT&Tag Assays](https://www.activemotif.com/blog-cut-tag)
+-   [Epicypher's Cut&Tag Documentation](https://support.epicypher.com/docs/cut-and-tag)
+-   [NBIS epigenomics workshop (Advanced ChIP method tutorial)](https://nbis-workshop-epigenomics.readthedocs.io/en/latest/content/tutorials/quantitative_chip_tutorials.html)
+-   [Cut & Run NFcore pipeline](https://nf-co.re/cutandrun/3.2.2/)
