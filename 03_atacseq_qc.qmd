@@ -2,7 +2,6 @@
 
 QC for the pipeline output
 
-
-- ATACseq specific steps - filtering mito reads, blacklisted regions if you have one, to shift reads or not to shift
-- The rabbit hole of peak calling: MACS2/Genrich - what they do, which to use
-- Decision tree: look at QC to evaluate individual samples, if there are signs that a sample hasn't worked or isn't the same quality -> exclude that from peak calling
+-   ATACseq specific steps - filtering mito reads, blacklisted regions if you have one, to shift reads or not to shift
+-   The rabbit hole of peak calling: MACS2/Genrich - what they do, which to use
+-   Decision tree: look at QC to evaluate individual samples, if there are signs that a sample hasn't worked or isn't the same quality -\> exclude that from peak calling
