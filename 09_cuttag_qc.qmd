@@ -1,7 +1,9 @@
 # Quality Control
 
-- Cut&Tag specific steps - filtering mito reads, blacklisted regions if you have one
-- IgG controls - did they work/did they not work?
+-   Cut&Tag specific steps - filtering mito reads, blacklisted regions if you have one
 
-- Decision tree: look at QC to evaluate individual samples, if there are signs that a sample hasn't worked or isn't the same quality -> exclude that from peak calling
-- What if one IgG control failed - which do you use?
+-   IgG controls - did they work/did they not work?
+
+-   Decision tree: look at QC to evaluate individual samples, if there are signs that a sample hasn't worked or isn't the same quality -\> exclude that from peak calling
+
+-   What if one IgG control failed - which do you use?
