@@ -1,0 +1,9 @@
+# Introduction to Cut&Tag
+
+What is it
+
+- Overview of the technolgoy
+- Cut&Tag experimental design:
+ - sequencing depth requirements
+ - lab based QC to check if good quality samples
+ - Control samples - IgG

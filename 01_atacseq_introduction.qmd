@@ -1,0 +1,19 @@
+# ATACseq Introduction
+
+-   Overview of the technolgoy
+
+-   Original protocol, omni-atac protocol
+
+-   ATACseq experimental design:
+
+-   sequencing depth requirements
+
+-   lab based QC to check if good quality samples? Fragment analyser, NA content
+
+-   what is the goal
+
+-   Goal of the analysis: identify differential accessible regions or TF/nucleosome footprinting?
+
+```{r}
+
+```

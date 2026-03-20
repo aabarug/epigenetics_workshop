@@ -1,0 +1,42 @@
+project:
+  type: book
+
+book:
+  title: "Epigenetics Workshop Monash"
+  author: "MGBP & Turner Laboratory"
+  date: "20/03/2026"
+  chapters:
+    - index.qmd
+    - 00_introduction.qmd
+    - part: "ATACseq Tutorial"
+      chapters:
+        - 01_atacseq_introduction.qmd
+        - 02_atacseq_processing.qmd
+        - 03_atacseq_qc.qmd
+        - 04_atacseq_peak_calling.qmd
+        - 05_atacseq_differential_accessibility.qmd
+        - 06_atacseq_downstream_analysis.qmd
+    - part: "Cut&Tag Tutorial"
+      chapters:
+        - 07_cuttag_introduction.qmd
+        - 08_cuttag_processing.qmd
+        - 09_cuttag_qc.qmd
+        - 10_cuttag_peak_calling.qmd
+        - 11_cuttag_differential_accessibilty.qmd
+        - 12_cuttag_downstream_analysis.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+  pdf:
+    documentclass: scrreprt
+
+editor: text
+
+execute:
+  freeze: auto
+

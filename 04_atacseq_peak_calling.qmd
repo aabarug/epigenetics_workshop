@@ -1,0 +1,8 @@
+# Peak Calling
+
+The rabbit hole
+
+- Do you: invidiually call peaks on individual samples for the same condition and then keep only the peaks that have been called in at least 2 samples? 
+- Consensus peak set: rabbit hole
+- Which peak calling method to use? MACS2, Genrich, csaw
+- Look at peaks in IGV
