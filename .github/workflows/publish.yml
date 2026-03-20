@@ -18,6 +18,7 @@ jobs:
         with:
           use-public-rspm: true
           r-version: '4.5.1'
+      - run: Rscript -e 'install.packages(c("rmarkdown", "knitr"))'
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
