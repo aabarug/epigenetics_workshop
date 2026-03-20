@@ -1,4 +1,4 @@
-# Cut & Tag Peak Calling
+# Peak Calling
 
 - The rabbit hole of peak calling: MACS2/SEACR - what they do, which to use
 - Do you: invidiually call peaks on individual samples for the same condition and then keep only the peaks that have been called in at least 2 samples? 

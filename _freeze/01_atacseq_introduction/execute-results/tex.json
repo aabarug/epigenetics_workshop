@@ -1,0 +1,21 @@
+{
+  "hash": "bf205876a3ef8fef6b9f94da009c9e0e",
+  "result": {
+    "engine": "knitr",
+    "markdown": "# ATACseq Introduction\n\n-   Overview of the technolgoy\n\n-   Original protocol, omni-atac protocol\n\n-   ATACseq experimental design:\n\n-   sequencing depth requirements\n\n-   lab based QC to check if good quality samples? Fragment analyser, NA content\n\n-   what is the goal\n\n-   Goal of the analysis: identify differential accessible regions or TF/nucleosome footprinting?\n\n\n\n::: {.cell}\n\n:::",
+    "supporting": [
+      "01_atacseq_introduction_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {
+      "knitr": [
+        "{\"type\":\"list\",\"attributes\":{},\"value\":[]}"
+      ]
+    },
+    "preserve": null,
+    "postProcess": false
+  }
+}

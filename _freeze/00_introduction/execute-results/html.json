@@ -1,0 +1,15 @@
+{
+  "hash": "1ff9627f9cc8b34e2536589408a2b3ed",
+  "result": {
+    "engine": "knitr",
+    "markdown": "# Introduction\n\nGoal of workshop:\n\nCourses:\n\nATACseq\n\nCut&Tag\n\n\n::: {.cell}\n\n:::",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

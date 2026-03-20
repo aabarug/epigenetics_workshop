@@ -1,4 +1,4 @@
-# ATACseq QC
+# Quality Control
 
 QC for the pipeline output
 

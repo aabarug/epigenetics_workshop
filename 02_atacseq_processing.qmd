@@ -1,3 +1,3 @@
-# ATACseq Data Processing
+# Data Processing
 
 How to run a pipeline and where to run one

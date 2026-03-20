@@ -1,4 +1,4 @@
-# Cut & Tag Quality Control
+# Quality Control
 
 - Cut&Tag specific steps - filtering mito reads, blacklisted regions if you have one
 - IgG controls - did they work/did they not work?
