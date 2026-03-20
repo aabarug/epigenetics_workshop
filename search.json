@@ -24,7 +24,7 @@
     "href": "01_atacseq_introduction.html",
     "title": "2  Introduction",
     "section": "",
-    "text": "Overview of the technolgoy\nOriginal protocol, omni-atac protocol\nATACseq experimental design:\nsequencing depth requirements\nlab based QC to check if good quality samples? Fragment analyser, NA content\nwhat is the goal\nGoal of the analysis: identify differential accessible regions or TF/nucleosome footprinting?\n\n\n\n\n\n\n\nFigure 2.1: Chromatin accessibility profiling by ATAC-seq",
+    "text": "Overview of the technolgoy\nOriginal protocol, omni-atac protocol\nATACseq experimental design:\nsequencing depth requirements\nlab based QC to check if good quality samples? Fragment analyser, NA content\nwhat is the goal\nGoal of the analysis: identify differential accessible regions or TF/nucleosome footprinting?\n\n\n\n\n\n\n\nFigure 2.1: Chromatin accessibility profiling by ATAC-seq. Image source: &lt;https://www.nature.com/articles/s41596-022-00692-9&gt;",
     "crumbs": [
       "ATACseq Tutorial",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introduction</span>"
