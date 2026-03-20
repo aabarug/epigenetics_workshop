@@ -22,34 +22,34 @@
   {
     "objectID": "01_atacseq_introduction.html",
     "href": "01_atacseq_introduction.html",
-    "title": "2  ATACseq Introduction",
+    "title": "2  Introduction",
     "section": "",
-    "text": "Overview of the technolgoy\nOriginal protocol, omni-atac protocol\nATACseq experimental design:\nsequencing depth requirements\nlab based QC to check if good quality samples? Fragment analyser, NA content\nwhat is the goal\nGoal of the analysis: identify differential accessible regions or TF/nucleosome footprinting?",
+    "text": "Overview of the technolgoy\nOriginal protocol, omni-atac protocol\nATACseq experimental design:\nsequencing depth requirements\nlab based QC to check if good quality samples? Fragment analyser, NA content\nwhat is the goal\nGoal of the analysis: identify differential accessible regions or TF/nucleosome footprinting?\n\n\n\n\n\n\n\nFigure 2.1: Chromatin accessibility profiling by ATAC-seq",
     "crumbs": [
       "ATACseq Tutorial",
-      "<span class='chapter-number'>2</span>  <span class='chapter-title'>ATACseq Introduction</span>"
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introduction</span>"
     ]
   },
   {
     "objectID": "02_atacseq_processing.html",
     "href": "02_atacseq_processing.html",
-    "title": "3  ATACseq Data Processing",
+    "title": "3  Data Processing",
     "section": "",
     "text": "How to run a pipeline and where to run one",
     "crumbs": [
       "ATACseq Tutorial",
-      "<span class='chapter-number'>3</span>  <span class='chapter-title'>ATACseq Data Processing</span>"
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Data Processing</span>"
     ]
   },
   {
     "objectID": "03_atacseq_qc.html",
     "href": "03_atacseq_qc.html",
-    "title": "4  ATACseq QC",
+    "title": "4  Quality Control",
     "section": "",
     "text": "QC for the pipeline output\n\nATACseq specific steps - filtering mito reads, blacklisted regions if you have one, to shift reads or not to shift\nThe rabbit hole of peak calling: MACS2/Genrich - what they do, which to use\nDecision tree: look at QC to evaluate individual samples, if there are signs that a sample hasn’t worked or isn’t the same quality -&gt; exclude that from peak calling",
     "crumbs": [
       "ATACseq Tutorial",
-      "<span class='chapter-number'>4</span>  <span class='chapter-title'>ATACseq QC</span>"
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Quality Control</span>"
     ]
   },
   {
@@ -77,45 +77,45 @@
   {
     "objectID": "07_cuttag_introduction.html",
     "href": "07_cuttag_introduction.html",
-    "title": "8  Introduction to Cut&Tag",
+    "title": "8  Introduction",
     "section": "",
     "text": "What is it\n\nOverview of the technolgoy\nCut&Tag experimental design:\nsequencing depth requirements\nlab based QC to check if good quality samples\nControl samples - IgG",
     "crumbs": [
       "Cut&Tag Tutorial",
-      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Introduction to Cut&Tag</span>"
+      "<span class='chapter-number'>8</span>  <span class='chapter-title'>Introduction</span>"
     ]
   },
   {
     "objectID": "08_cuttag_processing.html",
     "href": "08_cuttag_processing.html",
-    "title": "9  Cut & Tag Processing Pipeline",
+    "title": "9  Processing Pipeline",
     "section": "",
     "text": "How to run a pipeline and where to run one",
     "crumbs": [
       "Cut&Tag Tutorial",
-      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Cut & Tag Processing Pipeline</span>"
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Processing Pipeline</span>"
     ]
   },
   {
     "objectID": "09_cuttag_qc.html",
     "href": "09_cuttag_qc.html",
-    "title": "10  Cut & Tag Quality Control",
+    "title": "10  Quality Control",
     "section": "",
     "text": "Cut&Tag specific steps - filtering mito reads, blacklisted regions if you have one\nIgG controls - did they work/did they not work?\nDecision tree: look at QC to evaluate individual samples, if there are signs that a sample hasn’t worked or isn’t the same quality -&gt; exclude that from peak calling\nWhat if one IgG control failed - which do you use?",
     "crumbs": [
       "Cut&Tag Tutorial",
-      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Cut & Tag Quality Control</span>"
+      "<span class='chapter-number'>10</span>  <span class='chapter-title'>Quality Control</span>"
     ]
   },
   {
     "objectID": "10_cuttag_peak_calling.html",
     "href": "10_cuttag_peak_calling.html",
-    "title": "11  Cut & Tag Peak Calling",
+    "title": "11  Peak Calling",
     "section": "",
     "text": "The rabbit hole of peak calling: MACS2/SEACR - what they do, which to use\nDo you: invidiually call peaks on individual samples for the same condition and then keep only the peaks that have been called in at least 2 samples?\nConsensus peak set: rabbit hole\nWhich peak calling method to use? MACS2, SEACR\nLook at peaks in IGV",
     "crumbs": [
       "Cut&Tag Tutorial",
-      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Cut & Tag Peak Calling</span>"
+      "<span class='chapter-number'>11</span>  <span class='chapter-title'>Peak Calling</span>"
     ]
   },
   {
