@@ -1,3 +1,7 @@
 /.quarto/
 .Rproj.user
 /_book/
+renv/
+renv.lock
+tem_renv
+tmp_renv.lock
