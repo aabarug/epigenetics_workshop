@@ -4,7 +4,27 @@ project:
 
 book:
   title: "Epigenetics Workshop"
-  author: "Adele Barugahare, Daniel Thiele, David Chisanga, Pushkar Dackle, Giulia Iacono"
+  author: 
+  - name: Adele Barugahare 
+    affiliations:
+      - id: mgbp
+        name: Monash Genomics & Bioinformatics Platform
+      - id: tlab
+        name: Turner Laboratory
+  - name: Daniel Thiele
+    affiliations:
+      - id: lglab
+        name: La Gruta Lab
+  - name: David Chisanga
+    affiliations:
+      - id: slab
+        name: Shi Lab
+  - name: Pushkar Dackle
+    affiliations:
+      - ref: tlab
+  - name: Giulia Iacono
+    affiliations:
+      - ref: mgbp
   date: "03/20/2026"
   chapters:
     - index.qmd

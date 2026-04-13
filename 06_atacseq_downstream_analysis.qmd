@@ -2,6 +2,10 @@
 
 # Further Learning Resources
 
--   [NBIS epigenomics workshop (ATACseq tutorial)](https://nbis-workshop-epigenomics.readthedocs.io/en/latest/content/tutorials/atacseq_tutorials.html)
--   [BioCAsia 2020 ATACseqQC presentation](https://docs.google.com/presentation/d/1P50v1QMjJ_FOEdxZOn60ZROC4Q3FtTwK/edit?slide=id.p30#slide=id.p30)
--   [ATACseq NFcore pipelin](https://nf-co.re/atacseq/2.1.2/)
+- [Complete Guide to Understanding and Using ATAC-Seq](https://www.activemotif.com/blog-atac-seq)
+- [Library QC for ATAC-Seq and CUT&TAG](https://www.activemotif.com/blog-library-qc)
+- [Chromatin accessibility profiling by ATAC-seq](https://www.nature.com/articles/s41596-022-00692-9)
+- [ATAC-seq: A Method for Assaying Chromatin Accessibility Genome-Wide](https://pmc.ncbi.nlm.nih.gov/articles/PMC4374986/)
+- [NBIS epigenomics workshop (ATACseq tutorial)](https://nbis-workshop-epigenomics.readthedocs.io/en/latest/content/tutorials/atacseq_tutorials.html)
+- [BioCAsia 2020 ATACseqQC presentation](https://docs.google.com/presentation/d/1P50v1QMjJ_FOEdxZOn60ZROC4Q3FtTwK/edit?slide=id.p30#slide=id.p30)
+- [ATACseq NFcore pipeline](https://nf-co.re/atacseq/2.1.2/)

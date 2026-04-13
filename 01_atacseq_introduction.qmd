@@ -12,7 +12,7 @@ Recent advances in technology allow for the mapping of chromatin changes in very
 knitr::include_graphics("images/fig_active_motif_atacseq.png")
 ```
 
-[Image Source:](https://www.activemotif.com/blog-atac-seq)
+Image Source: [Complete Guide to Understanding and Using ATAC-Seq](https://www.activemotif.com/blog-atac-seq)
 
 ### Experiment considerations
 
@@ -91,14 +91,15 @@ Whilst ATAC-seq is a great technique for understanding how chromatin accessibili
 
 7. Low viability of cell populations can lead to nuclei clumping and tagmentation failure.
 
-ATAC-seq output and data visualisation
-Basic graphs with functions.
-FRiP score
-PCA plot
-Pearson correlation heatmap
-Differentional analysis volcano plots
-Mapping of genomic elements
-Heatmap of differential accessible regions
-Correlation between ATAC-seq and RNA-seq
+
+- ATAC-seq output and data visualisation
+- Basic graphs with functions.
+- FRiP score
+- PCA plot
+- Pearson correlation heatmap
+- Differentional analysis volcano plots
+- Mapping of genomic elements
+- Heatmap of differential accessible regions
+- Correlation between ATAC-seq and RNA-seq
 
 
