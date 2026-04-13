@@ -14,7 +14,7 @@ knitr::include_graphics("images/fig_active_motif_atacseq.png")
 
 Image Source: [Complete Guide to Understanding and Using ATAC-Seq](https://www.activemotif.com/blog-atac-seq)
 
-### Experiment considerations
+## Experiment considerations
 
 Whilst omniATAC-seq offers superior data generation than traditional techniques, it is important to consider the biological questions being asked prior to the commencement of any experiments. Examples of biological questions ATAC-seq can help answer including How do chromatin accessibility landscapes differ between cell types? Which transcription factors are likely driving this gene program? Are there stable accessibility changes in memory or trained cells compared with naïve cells after an initial stimulus?
 
@@ -44,7 +44,7 @@ knitr::include_graphics("images/fig_chromatin_profiling.png")
 
 Image source: [@Grandi2022]
 
-### Library generation
+## Library generation
 
 A significant advantage of ATAC-seq over traditional techniques is that tagmented DNA can be quickly and easily used to generate your libraries of interest requiring only a single PCR amplification step following tagmentation. ATAC-seq samples are sequenced on next-gen sequencing machines allowing for multiplexing of multiple samples into the single sequencing run offering superior cost efficiency than other techniques. Briefly, individual ATAC-seq samples are barcoded with a common i5 primer and unique i7 primers that allow for the demultiplexing of sample sequences. The number of unique i7 primers included in your experiment will depend on the number of samples within your experiment. Unique i5 primers can also be included to expand the number of samples that can be sequenced together. This should be discussed with your sequence facility prior to library generation to ensure that the combinations of i5 and i7 primers used are compatible with your NGS machine.
 
@@ -69,7 +69,7 @@ knitr::include_graphics("images/fig_atac_fragment_profile.png")
 
 Image source: [Library QC for ATAC-Seq and CUT&Tag](ttps://www.activemotif.com/blog-library-qc)
 
-### Sequencing considerations
+## Sequencing considerations
 
 ATAC-seq sequencing prioritizes paired-end reads with 50-75 bp lengths to capture nucleosome positioning and fragment sizes up to 1 kb. Target 50 million mapped reads per sample for peak calling (200 million+ for footprinting), using Illumina platforms like NovaSeq, NextSeq, or MiSeq.
 

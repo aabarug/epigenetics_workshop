@@ -46,6 +46,7 @@ book:
         - 11_cuttag_differential_accessibilty.qmd
         - 12_cuttag_downstream_analysis.qmd
 bibliography: references.bib
+suppress-bibliography: true
 
 format:
   html:
