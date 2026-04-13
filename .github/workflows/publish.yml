@@ -19,7 +19,7 @@ jobs:
           use-public-rspm: true
           r-version: '4.5.1'
       - run: Rscript -e 'install.packages(c("rmarkdown", "knitr", "dplyr", "BiocManager"), repos = "https://mirror.aarnet.edu.au/pub/CRAN/")'
-      - run: Rscript -e 'BiocManager::install("limma")'
+      - run: Rscript -e 'BiocManager::install(c("limma", "edgeR", "GenomicRanges", "Rsubread"))'
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
