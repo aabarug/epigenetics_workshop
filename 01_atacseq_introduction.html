@@ -23,7 +23,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -266,7 +285,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-<p><a href="https://www.activemotif.com/blog-atac-seq">Image Source:</a></p>
+<p>Image Source: <a href="https://www.activemotif.com/blog-atac-seq">Complete Guide to Understanding and Using ATAC-Seq</a></p>
 <section id="experiment-considerations" class="level3" data-number="2.0.1">
 <h3 data-number="2.0.1" class="anchored" data-anchor-id="experiment-considerations"><span class="header-section-number">2.0.1</span> Experiment considerations</h3>
 <p>Whilst omniATAC-seq offers superior data generation than traditional techniques, it is important to consider the biological questions being asked prior to the commencement of any experiments. Examples of biological questions ATAC-seq can help answer including How do chromatin accessibility landscapes differ between cell types? Which transcription factors are likely driving this gene program? Are there stable accessibility changes in memory or trained cells compared with naïve cells after an initial stimulus?</p>
@@ -302,7 +321,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-<p>Image source: <a href="https://www.nature.com/articles/s41596-022-00692-9">Chromatin accessibility profiling by ATAC-seq</a></p>
+<p>Image source: <span class="citation" data-cites="Grandi2022">(<a href="#ref-Grandi2022" role="doc-biblioref">Grandi et al. 2022</a>)</span></p>
 </section>
 <section id="library-generation" class="level3" data-number="2.0.2">
 <h3 data-number="2.0.2" class="anchored" data-anchor-id="library-generation"><span class="header-section-number">2.0.2</span> Library generation</h3>
@@ -317,7 +336,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-<p>Image source: <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4374986/">ATAC-seq: A Method for Assaying Chromatin Accessibility Genome-Wide</a></p>
+<p>Image source: <span class="citation" data-cites="Buenrostro2015">(<a href="#ref-Buenrostro2015" role="doc-biblioref">Buenrostro et al. 2015</a>)</span></p>
 <p>Each ATAC-seq library should be quantified and fragments should be analysed using a fragment analyser. Quantification of each library is necessary to ensure sufficient material is present for sequencing (1-20ng of DNA per sample). The exact of DNA present in each library will depend on the number of cells used, the cell type of interest, the efficiency of tagmention and the number of cycles used to amplify the libraries, however, a recommendation is usually between 10-40 ng/ul.</p>
 <p>Often ATAC-seq libraries ran on a bioanalyzer will reveal many smaller and larger fragments that will need to be removed prior to sequencing using double-sided ampure bead size exclusion, this should be discussed with your sequencing facility prior to submission for sequencing. The ideal fragment sizes needed for ATAC-seq include fragments between 200-500bp representing nucleosome free and mononucleosome regions of interest (see below a figure from (https://www.activemotif.com/blog-library-qc).</p>
 <div class="cell">
@@ -345,9 +364,27 @@ ul.task-list li input[type="checkbox"] {
 <li><p>Bulk ATAC‑seq cannot resolve heterogeneity within a mixed population; apparent “intermediate” accessibility at a locus may reflect a mixture of fully open and fully closed cells rather than graded regulation.</p></li>
 <li><p>Low viability of cell populations can lead to nuclei clumping and tagmentation failure.</p></li>
 </ol>
-<p>ATAC-seq output and data visualisation Basic graphs with functions. FRiP score PCA plot Pearson correlation heatmap Differentional analysis volcano plots Mapping of genomic elements Heatmap of differential accessible regions Correlation between ATAC-seq and RNA-seq</p>
+<ul>
+<li>ATAC-seq output and data visualisation</li>
+<li>Basic graphs with functions.</li>
+<li>FRiP score</li>
+<li>PCA plot</li>
+<li>Pearson correlation heatmap</li>
+<li>Differentional analysis volcano plots</li>
+<li>Mapping of genomic elements</li>
+<li>Heatmap of differential accessible regions</li>
+<li>Correlation between ATAC-seq and RNA-seq</li>
+</ul>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-Buenrostro2015" class="csl-entry" role="listitem">
+Buenrostro, Jason D., Beijing Wu, Howard Y. Chang, and William J. Greenleaf. 2015. <span>“ATAC-Seq: A Method for Assaying Chromatin Accessibility Genome-Wide.”</span> <em>Current Protocols in Molecular Biology</em> 109 (1): 21.29.1–9. https://doi.org/<a href="https://doi.org/10.1002/0471142727.mb2129s109">https://doi.org/10.1002/0471142727.mb2129s109</a>.
+</div>
+<div id="ref-Grandi2022" class="csl-entry" role="listitem">
+Grandi, Fiorella C., Hailey Modi, Lucas Kampman, and M. Ryan Corces. 2022. <span>“Chromatin Accessibility Profiling by ATAC-Seq.”</span> <em>Nature Protocols</em> 17 (6): 1518–52. <a href="https://doi.org/10.1038/s41596-022-00692-9">https://doi.org/10.1038/s41596-022-00692-9</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
