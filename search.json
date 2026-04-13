@@ -2,7 +2,7 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Epigenetics Workshop Monash",
+    "title": "Epigenetics Workshop",
     "section": "",
     "text": "Getting Started\nInstructors:\nContact\nPlease email bioinformatics.platform@monash.edu for more information",
     "crumbs": [
@@ -24,7 +24,7 @@
     "href": "01_atacseq_introduction.html",
     "title": "2  Introduction",
     "section": "",
-    "text": "Overview of the technolgoy\nOriginal protocol, omni-atac protocol\nATACseq experimental design:\nsequencing depth requirements\nlab based QC to check if good quality samples? Fragment analyser, NA content\nwhat is the goal\nGoal of the analysis: identify differential accessible regions or TF/nucleosome footprinting?\n\n\n\n\n\n\n\nFigure 2.1: Chromatin accessibility profiling by ATAC-seq. Image source: &lt;https://www.nature.com/articles/s41596-022-00692-9&gt;",
+    "text": "The mapping of the chromatin landscape can help understand how cells are poised for gene regulation including when a gene element is turned ‘off’ or ‘on’ based on a number of biological conditions. Understanding chromatin accessibility, therefore provides a deeper understanding of a cell’s differentiation state often not observed by gene expression data alone.\nWhilst traditional techniques used to study chromatin accessibility include FAIR-seq and DNASE-seq, these techniques require large amounts of cell numbers and often have very low signal-to-background requiring many more samples in order to generate statistically significant results.\nRecent advances in technology allow for the mapping of chromatin changes in very small cell numbers, high signal-to-noise and low time and cost investment. This has led to the development of the assay for transposase-accessible chromatin by sequencing or ATAC-seq which leverages an overactive form of transposes 5 (Tn5) which binds to exposed chromatin elements and cleaves in situ depositing custom DNA probes for ease of PCR amplification (tagmentation) (Figure 1). ATAC-seq can be used to study chromatin accessibility in a variety of cell populations including directly ex vivo or in vitro cultures. ATAC-seq has been further optimised and replaced with omniATAC-seq which offers better results with fewer cells needed.\n\n\n\n\n\n\n\n\n\nImage Source:\n\n2.0.1 Experiment considerations\nWhilst omniATAC-seq offers superior data generation than traditional techniques, it is important to consider the biological questions being asked prior to the commencement of any experiments. Examples of biological questions ATAC-seq can help answer including How do chromatin accessibility landscapes differ between cell types? Which transcription factors are likely driving this gene program? Are there stable accessibility changes in memory or trained cells compared with naïve cells after an initial stimulus?\nBasic experimental design recommendations for ATAC-seq include the following:\n\nAt least 2 biological replicates per condition\n\n\nThe more biological replicates the more robust your statistical tests downstream will be\n\n\nStandardise cell numbers per condition where possible\n\n\nEnsures parody across samples during tagmentation and library generation.\n\n\nATAC-seq experiments performed across different timepoints should have a common biological sample for controlling for technique and time batch effects.\n\n\nTo avoid unnecessary batch effects the same buffers should be used across experiments and library generation following tagmention should be completed together across all samples sequenced.\n\nATAC-seq is a bulk analysis of a population of interest requiring the user to enrich their populations of interest to avoid noise that may be caused from heterogeneity within the tested populations. It is recommended that samples be sorted via flow cytometry to ensure a homogeneous and live population of cells are used throughout the technique.\nMapping chromatin accessibility can provide useful information; it is recommended that this data be paired with gene expression data from the same populations, this can be RNA-seq or even RT-PCR data, to better understand how chromatin accessibility changes can influence gene expression patterns. Why is this useful? It provides positive control gene loci that you know are upregulated or downregulated in your cell populations of interest to understand better if your ATAC-seq experiment was successful. Without this, it can be hard to form biological conclusions on chromatin accessibility alone.\nAnother important consideration when designing your experiment is the types of analysis you wish to complete downstream of your ATAC-seq. Whilst most biological questions can be answered with simple differential analysis of accessible regions between two cell types or states, some biological questions demand more robust forms of analysis such as footprinting of transcription factor binding or nucleosome mapping. These complex analyses require significantly more sequencing depth than differential analysis alone, and thus will influence your experimental design to ensure sufficient sequencing depth is achieved to answer these questions.\nLastly, in attempting omniATAC-seq on your cell population of interest, there must be significant optimisation in nuclei extraction protocols as different cell-types require different cell lysis conditions. If cell nuclei are underextracted it will result in increased mitochondrial DNA contamination and inefficient sequencing data and costs. Overextraction of nuclei can result in nuclei clumping leading to decreased signal-to-background and even tagmentation failure. Time must be invested to ensure intact nuclei can be extracted from your cell population of interest existing nuclei extraction protocols can be used for ATAC-seq.\n\n\n\n\n\n\n\n\n\nImage source: Chromatin accessibility profiling by ATAC-seq\n\n\n2.0.2 Library generation\nA significant advantage of ATAC-seq over traditional techniques is that tagmented DNA can be quickly and easily used to generate your libraries of interest requiring only a single PCR amplification step following tagmentation. ATAC-seq samples are sequenced on next-gen sequencing machines allowing for multiplexing of multiple samples into the single sequencing run offering superior cost efficiency than other techniques. Briefly, individual ATAC-seq samples are barcoded with a common i5 primer and unique i7 primers that allow for the demultiplexing of sample sequences. The number of unique i7 primers included in your experiment will depend on the number of samples within your experiment. Unique i5 primers can also be included to expand the number of samples that can be sequenced together. This should be discussed with your sequence facility prior to library generation to ensure that the combinations of i5 and i7 primers used are compatible with your NGS machine.\nThe number of optimal PCR cycles when generating ATAC-seq libraries is critical to minimise overamplification of ATAC-seq libraries resulting in fewer PCR duplicates removed during data curation. The number of optimal PCR cycles per library can be determined by RT-qPCR, whereby libraries are partially amplified before running on a qPCR machine with common Illumina sequencing primers which bind a common sequence that is present in tagmented DNA. This step also offers a great QC metric of your ATAC-seq libraries as only tagmented DNA will produce a signal in your library allow for you to detect if your ATAC-seq samples have worked. Briefly and outlined in (https://www.med.upenn.edu/kaestnerlab/assets/user-content/documents/ATAC-seq-Protocol-(Omni)-Kaestner-Lab.pdf) The number of additional PCR cycles per library can be determined by taking, plot fluorescence versus cycle and determine the cycle number that corresponds to one-third of the maximum fluorescent intensity (See figure below for an example).\n\n\n\n\n\n\n\n\n\nImage source: ATAC-seq: A Method for Assaying Chromatin Accessibility Genome-Wide\nEach ATAC-seq library should be quantified and fragments should be analysed using a fragment analyser. Quantification of each library is necessary to ensure sufficient material is present for sequencing (1-20ng of DNA per sample). The exact of DNA present in each library will depend on the number of cells used, the cell type of interest, the efficiency of tagmention and the number of cycles used to amplify the libraries, however, a recommendation is usually between 10-40 ng/ul.\nOften ATAC-seq libraries ran on a bioanalyzer will reveal many smaller and larger fragments that will need to be removed prior to sequencing using double-sided ampure bead size exclusion, this should be discussed with your sequencing facility prior to submission for sequencing. The ideal fragment sizes needed for ATAC-seq include fragments between 200-500bp representing nucleosome free and mononucleosome regions of interest (see below a figure from (https://www.activemotif.com/blog-library-qc).\n\n\n\n\n\n\n\n\n\nImage source: Library QC for ATAC-Seq and CUT&Tag\n\n\n2.0.3 Sequencing considerations\nATAC-seq sequencing prioritizes paired-end reads with 50-75 bp lengths to capture nucleosome positioning and fragment sizes up to 1 kb. Target 50 million mapped reads per sample for peak calling (200 million+ for footprinting), using Illumina platforms like NovaSeq, NextSeq, or MiSeq.\nLimitations of ATAC-seq\nWhilst ATAC-seq is a great technique for understanding how chromatin accessibility changes between cell populations, there are some limitations of the technique that must be considered.\n\nATAC-seq only discerns changes in chromatin accessibility but provides no information of the drivers of these changes such as epigenetic marks like DNA methylation of histone modifications. Without histone modification data ATAC-seq can not be used to define regulatory elements such as active or poised enhancers confidently.\nATAC-seq provides no 3D chromatin architecture information such as looping, compartments or potential long-range interactions which exist across the genome.\nWhilst chromatin accessibility does strongly correlate with gene expression, without paired gene expression data it is impossible to confidently conclude if chromatin changes do lead to changes in gene expression\nDe novo Transcription factor binding analysis can provide useful information about potential TFs that may be driving gene expression profiles but these will need to be experimentally validated using ChIP-Seq, CUT&Tag or CUT&Run.\nTn5 transposase has sequence‑ and context‑dependent bias, favoring exposed DNA and TF‑binding‑site‑like regions, so it can under‑represent some occupied regulatory elements and distort footprint‑like signals.\nBulk ATAC‑seq cannot resolve heterogeneity within a mixed population; apparent “intermediate” accessibility at a locus may reflect a mixture of fully open and fully closed cells rather than graded regulation.\nLow viability of cell populations can lead to nuclei clumping and tagmentation failure.\n\nATAC-seq output and data visualisation Basic graphs with functions. FRiP score PCA plot Pearson correlation heatmap Differentional analysis volcano plots Mapping of genomic elements Heatmap of differential accessible regions Correlation between ATAC-seq and RNA-seq",
     "crumbs": [
       "ATACseq Tutorial",
       "<span class='chapter-number'>2</span>  <span class='chapter-title'>Introduction</span>"
@@ -61,6 +61,94 @@
     "crumbs": [
       "ATACseq Tutorial",
       "<span class='chapter-number'>5</span>  <span class='chapter-title'>Peak Calling</span>"
+    ]
+  },
+  {
+    "objectID": "05_atacseq_differential_accessibility.html",
+    "href": "05_atacseq_differential_accessibility.html",
+    "title": "6  Differential Accessibilty Analysis",
+    "section": "",
+    "text": "6.1 Peak-level read summarisation\nThe next step is to perform differential accessibility analysis to identify regions of the genome that are differentially accessible between conditions. This can be done using the limma, edgeR or DeSeq2 packages in R, which are commonly used for differential gene expression analysis but can also be applied to ATAC-seq data.\nHere, the limma-voom method is used to perform differential accessibility analysis. This method is based on the limma package and uses a voom transformation to account for the mean-variance relationship in the data.\nThe first step is to summarise the read counts for each peak across all samples. This can be done using the featureCounts function from the Rsubread package, which counts the number of reads that overlap with each peak.\n#Summarise read counts using consensus peaks from previous step",
+    "crumbs": [
+      "ATACseq Tutorial",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Differential Accessibilty Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "05_atacseq_differential_accessibility.html#adding-peak-level-annotations",
+    "href": "05_atacseq_differential_accessibility.html#adding-peak-level-annotations",
+    "title": "6  Differential Accessibilty Analysis",
+    "section": "6.2 Adding peak-level annotations",
+    "text": "6.2 Adding peak-level annotations\nAfter summarising the read counts, it is important to add annotations to the peaks. This can include information about the genomic location of the peak, the nearest gene, and any known regulatory elements that may be associated with the peak. There are several tools available for annotating peaks, such as ChIPseeker and HOMER. These tools can help you to understand the biological significance of the differentially accessible peaks and to identify potential regulatory elements that may be involved in the observed changes in accessibility.\n\n#Annotate consensus peaks using Homer",
+    "crumbs": [
+      "ATACseq Tutorial",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Differential Accessibilty Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "05_atacseq_differential_accessibility.html#design-matrix",
+    "href": "05_atacseq_differential_accessibility.html#design-matrix",
+    "title": "6  Differential Accessibilty Analysis",
+    "section": "6.3 Design Matrix",
+    "text": "6.3 Design Matrix\nA design matrix is used to specify the experimental design and the conditions being compared allowing us to specify which samples belong to which conditions. For example, if you have two conditions (e.g., treatment vs control), you can create a design matrix that indicates which samples belong to each condition. This design matrix will be used in the linear modelling step to fit the model and perform the differential analysis.\n\n# Create a design matrix for the conditions being compared",
+    "crumbs": [
+      "ATACseq Tutorial",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Differential Accessibilty Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "05_atacseq_differential_accessibility.html#filtering",
+    "href": "05_atacseq_differential_accessibility.html#filtering",
+    "title": "6  Differential Accessibilty Analysis",
+    "section": "6.4 Filtering",
+    "text": "6.4 Filtering\nBefore performing differential analysis, it is important to filter out lowly accessible peaks that may not provide reliable information. This can be done by setting a threshold for the minimum number of reads that must be present in a peak across all samples. For example, you might require that a peak has at least 3 Counts Per Million reads (cpm) in at least 2 samples to be included in the analysis.",
+    "crumbs": [
+      "ATACseq Tutorial",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Differential Accessibilty Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "05_atacseq_differential_accessibility.html#voom-transformation-and-normalisation",
+    "href": "05_atacseq_differential_accessibility.html#voom-transformation-and-normalisation",
+    "title": "6  Differential Accessibilty Analysis",
+    "section": "6.5 Voom transformation and normalisation",
+    "text": "6.5 Voom transformation and normalisation\nFiltered counts are transformed using the voom method, which estimates the mean-variance relationship in the data and applies a transformation to stabilize the variance across the range of mean values. This is important for accurate differential analysis.",
+    "crumbs": [
+      "ATACseq Tutorial",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Differential Accessibilty Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "05_atacseq_differential_accessibility.html#linear-modelling",
+    "href": "05_atacseq_differential_accessibility.html#linear-modelling",
+    "title": "6  Differential Accessibilty Analysis",
+    "section": "6.6 Linear modelling",
+    "text": "6.6 Linear modelling\nThe next step is to fit a linear model to the transformed data using the lmFit function from the limma package. This function takes the design matrix and the voom-transformed data as input and fits a linear model for each peak.",
+    "crumbs": [
+      "ATACseq Tutorial",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Differential Accessibilty Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "05_atacseq_differential_accessibility.html#contrast-matrix",
+    "href": "05_atacseq_differential_accessibility.html#contrast-matrix",
+    "title": "6  Differential Accessibilty Analysis",
+    "section": "6.7 Contrast Matrix",
+    "text": "6.7 Contrast Matrix\nAfter fitting the linear model, you can specify contrasts to compare different conditions. For example, if you have two conditions (e.g., treatment vs control), you can create a contrast matrix to compare these conditions directly.",
+    "crumbs": [
+      "ATACseq Tutorial",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Differential Accessibilty Analysis</span>"
+    ]
+  },
+  {
+    "objectID": "05_atacseq_differential_accessibility.html#summary-of-da-peaks",
+    "href": "05_atacseq_differential_accessibility.html#summary-of-da-peaks",
+    "title": "6  Differential Accessibilty Analysis",
+    "section": "6.8 Summary of DA peaks",
+    "text": "6.8 Summary of DA peaks\nAfter performing the differential analysis, you can summarise the results to identify the differentially accessible peaks. This typically involves applying a threshold for statistical significance (e.g., adjusted p-value &lt; 0.05) and log-fold change to identify peaks that are significantly differentially accessible between conditions.\nA number of plots can be generated to visualise the results, such as volcano plots, heatmaps, MA plots and Coverage plots, which can help to identify patterns in the data and highlight the most significant differentially accessible peaks.",
+    "crumbs": [
+      "ATACseq Tutorial",
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Differential Accessibilty Analysis</span>"
     ]
   },
   {

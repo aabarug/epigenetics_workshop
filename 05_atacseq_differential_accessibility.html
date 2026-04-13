@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.36">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>6&nbsp; Differential Accessibilty Analysis – Epigenetics Workshop Monash</title>
+<title>6&nbsp; Differential Accessibilty Analysis – Epigenetics Workshop</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -22,6 +22,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -41,10 +76,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-44ee0976171e9be92e6ebe9be850cd66.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-36bf55b16c7cb4b1420f41495cb5446a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -100,7 +135,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Epigenetics Workshop Monash</a> 
+      <a href="./">Epigenetics Workshop</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -221,8 +256,21 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#peak-level-read-summarisation" id="toc-peak-level-read-summarisation" class="nav-link active" data-scroll-target="#peak-level-read-summarisation"><span class="header-section-number">6.1</span> Peak-level read summarisation</a></li>
+  <li><a href="#adding-peak-level-annotations" id="toc-adding-peak-level-annotations" class="nav-link" data-scroll-target="#adding-peak-level-annotations"><span class="header-section-number">6.2</span> Adding peak-level annotations</a></li>
+  <li><a href="#design-matrix" id="toc-design-matrix" class="nav-link" data-scroll-target="#design-matrix"><span class="header-section-number">6.3</span> Design Matrix</a></li>
+  <li><a href="#filtering" id="toc-filtering" class="nav-link" data-scroll-target="#filtering"><span class="header-section-number">6.4</span> Filtering</a></li>
+  <li><a href="#voom-transformation-and-normalisation" id="toc-voom-transformation-and-normalisation" class="nav-link" data-scroll-target="#voom-transformation-and-normalisation"><span class="header-section-number">6.5</span> Voom transformation and normalisation</a></li>
+  <li><a href="#linear-modelling" id="toc-linear-modelling" class="nav-link" data-scroll-target="#linear-modelling"><span class="header-section-number">6.6</span> Linear modelling</a></li>
+  <li><a href="#contrast-matrix" id="toc-contrast-matrix" class="nav-link" data-scroll-target="#contrast-matrix"><span class="header-section-number">6.7</span> Contrast Matrix</a></li>
+  <li><a href="#summary-of-da-peaks" id="toc-summary-of-da-peaks" class="nav-link" data-scroll-target="#summary-of-da-peaks"><span class="header-section-number">6.8</span> Summary of DA peaks</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -246,8 +294,55 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Code to load the peak count data and sample sheet</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The next step is to perform differential accessibility analysis to identify regions of the genome that are differentially accessible between conditions. This can be done using the <code>limma</code>, <code>edgeR</code> or <code>DeSeq2</code> packages in R, which are commonly used for differential gene expression analysis but can also be applied to ATAC-seq data.</p>
+<p>Here, the limma-voom method is used to perform differential accessibility analysis. This method is based on the limma package and uses a voom transformation to account for the mean-variance relationship in the data.</p>
+<section id="peak-level-read-summarisation" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="peak-level-read-summarisation"><span class="header-section-number">6.1</span> Peak-level read summarisation</h2>
+<p>The first step is to summarise the read counts for each peak across all samples. This can be done using the <code>featureCounts</code> function from the <code>Rsubread</code> package, which counts the number of reads that overlap with each peak.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Summarise read counts using consensus peaks from previous step </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="adding-peak-level-annotations" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="adding-peak-level-annotations"><span class="header-section-number">6.2</span> Adding peak-level annotations</h2>
+<p>After summarising the read counts, it is important to add annotations to the peaks. This can include information about the genomic location of the peak, the nearest gene, and any known regulatory elements that may be associated with the peak. There are several tools available for annotating peaks, such as <code>ChIPseeker</code> and <code>HOMER</code>. These tools can help you to understand the biological significance of the differentially accessible peaks and to identify potential regulatory elements that may be involved in the observed changes in accessibility.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Annotate consensus peaks using Homer</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="design-matrix" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="design-matrix"><span class="header-section-number">6.3</span> Design Matrix</h2>
+<p>A design matrix is used to specify the experimental design and the conditions being compared allowing us to specify which samples belong to which conditions. For example, if you have two conditions (e.g., treatment vs control), you can create a design matrix that indicates which samples belong to each condition. This design matrix will be used in the linear modelling step to fit the model and perform the differential analysis.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a design matrix for the conditions being compared</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="filtering" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="filtering"><span class="header-section-number">6.4</span> Filtering</h2>
+<p>Before performing differential analysis, it is important to filter out lowly accessible peaks that may not provide reliable information. This can be done by setting a threshold for the minimum number of reads that must be present in a peak across all samples. For example, you might require that a peak has at least 3 Counts Per Million reads (cpm) in at least 2 samples to be included in the analysis.</p>
+</section>
+<section id="voom-transformation-and-normalisation" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="voom-transformation-and-normalisation"><span class="header-section-number">6.5</span> Voom transformation and normalisation</h2>
+<p>Filtered counts are transformed using the voom method, which estimates the mean-variance relationship in the data and applies a transformation to stabilize the variance across the range of mean values. This is important for accurate differential analysis.</p>
+</section>
+<section id="linear-modelling" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="linear-modelling"><span class="header-section-number">6.6</span> Linear modelling</h2>
+<p>The next step is to fit a linear model to the transformed data using the <code>lmFit</code> function from the limma package. This function takes the design matrix and the voom-transformed data as input and fits a linear model for each peak.</p>
+</section>
+<section id="contrast-matrix" class="level2" data-number="6.7">
+<h2 data-number="6.7" class="anchored" data-anchor-id="contrast-matrix"><span class="header-section-number">6.7</span> Contrast Matrix</h2>
+<p>After fitting the linear model, you can specify contrasts to compare different conditions. For example, if you have two conditions (e.g., treatment vs control), you can create a contrast matrix to compare these conditions directly.</p>
+</section>
+<section id="summary-of-da-peaks" class="level2" data-number="6.8">
+<h2 data-number="6.8" class="anchored" data-anchor-id="summary-of-da-peaks"><span class="header-section-number">6.8</span> Summary of DA peaks</h2>
+<p>After performing the differential analysis, you can summarise the results to identify the differentially accessible peaks. This typically involves applying a threshold for statistical significance (e.g., adjusted p-value &lt; 0.05) and log-fold change to identify peaks that are significantly differentially accessible between conditions.</p>
+<p>A number of plots can be generated to visualise the results, such as volcano plots, heatmaps, MA plots and Coverage plots, which can help to identify patterns in the data and highlight the most significant differentially accessible peaks.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
