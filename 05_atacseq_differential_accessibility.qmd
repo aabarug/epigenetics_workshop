@@ -1,1 +1,76 @@
 # Differential Accessibilty Analysis
+
+```{r setup, include=FALSE}
+# Load necessary libraries
+library(limma)
+library(edgeR)
+library(GenomicRanges)
+library(Rsubread)
+```
+
+```{r}
+#Code to load the peak count data and sample sheet
+
+```
+
+The next step is to perform differential accessibility analysis to identify regions of the genome that are differentially accessible between conditions. This can be done using the `limma`, `edgeR` or `DeSeq2` packages in R, which are commonly used for differential gene expression analysis but can also be applied to ATAC-seq data.
+
+Here, the limma-voom method is used to perform differential accessibility analysis. This method is based on the limma package and uses a voom transformation to account for the mean-variance relationship in the data.
+
+## Peak-level read summarisation
+
+The first step is to summarise the read counts for each peak across all samples. This can be done using the `featureCounts` function from the `Rsubread` package, which counts the number of reads that overlap with each peak.
+
+```{r, eval=FALSE}
+#Summarise read counts using consensus peaks from previous step 
+
+```
+
+
+## Adding peak-level annotations
+
+After summarising the read counts, it is important to add annotations to the peaks. This can include information about the genomic location of the peak, the nearest gene, and any known regulatory elements that may be associated with the peak. There are several tools available for annotating peaks, such as `ChIPseeker` and `HOMER`. These tools can help you to understand the biological significance of the differentially accessible peaks and to identify potential regulatory elements that may be involved in the observed changes in accessibility.
+
+```{bash,eval=FALSE}
+#Annotate consensus peaks using Homer
+
+```
+
+
+## Design Matrix
+
+A design matrix is used to specify the experimental design and the conditions being compared allowing us to specify which samples belong to which conditions. For example, if you have two conditions (e.g., treatment vs control), you can create a design matrix that indicates which samples belong to each condition. This design matrix will be used in the linear modelling step to fit the model and perform the differential analysis.
+
+```{r}
+# Create a design matrix for the conditions being compared
+
+```
+
+## Filtering
+
+Before performing differential analysis, it is important to filter out lowly accessible peaks that may not provide reliable information. This can be done by setting a threshold for the minimum number of reads that must be present in a peak across all samples. For example, you might require that a peak has at least 3 Counts Per Million reads (cpm) in at least 2 samples to be included in the analysis.
+
+
+
+## Voom transformation and normalisation
+
+Filtered counts are transformed using the voom method, which estimates the mean-variance relationship in the data and applies a transformation to stabilize the variance across the range of mean values. This is important for accurate differential analysis.
+
+## Linear modelling
+
+The next step is to fit a linear model to the transformed data using the `lmFit` function from the limma package. This function takes the design matrix and the voom-transformed data as input and fits a linear model for each peak.
+
+## Contrast Matrix 
+
+After fitting the linear model, you can specify contrasts to compare different conditions. For example, if you have two conditions (e.g., treatment vs control), you can create a contrast matrix to compare these conditions directly.
+
+## Summary of DA peaks
+
+After performing the differential analysis, you can summarise the results to identify the differentially accessible peaks. This typically involves applying a threshold for statistical significance (e.g., adjusted p-value < 0.05) and log-fold change to identify peaks that are significantly differentially accessible between conditions.
+
+A number of plots can be generated to visualise the results, such as volcano plots, heatmaps, MA plots and Coverage plots, which can help to identify patterns in the data and highlight the most significant differentially accessible peaks.
+
+
+
+
+
