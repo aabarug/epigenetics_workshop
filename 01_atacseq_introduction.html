@@ -23,26 +23,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -245,9 +226,9 @@ div.csl-indent {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#experiment-considerations" id="toc-experiment-considerations" class="nav-link active" data-scroll-target="#experiment-considerations"><span class="header-section-number">2.0.1</span> Experiment considerations</a></li>
-  <li><a href="#library-generation" id="toc-library-generation" class="nav-link" data-scroll-target="#library-generation"><span class="header-section-number">2.0.2</span> Library generation</a></li>
-  <li><a href="#sequencing-considerations" id="toc-sequencing-considerations" class="nav-link" data-scroll-target="#sequencing-considerations"><span class="header-section-number">2.0.3</span> Sequencing considerations</a></li>
+  <li><a href="#experiment-considerations" id="toc-experiment-considerations" class="nav-link active" data-scroll-target="#experiment-considerations"><span class="header-section-number">2.1</span> Experiment considerations</a></li>
+  <li><a href="#library-generation" id="toc-library-generation" class="nav-link" data-scroll-target="#library-generation"><span class="header-section-number">2.2</span> Library generation</a></li>
+  <li><a href="#sequencing-considerations" id="toc-sequencing-considerations" class="nav-link" data-scroll-target="#sequencing-considerations"><span class="header-section-number">2.3</span> Sequencing considerations</a></li>
   </ul>
 </nav>
     </div>
@@ -286,8 +267,8 @@ div.csl-indent {
 </div>
 </div>
 <p>Image Source: <a href="https://www.activemotif.com/blog-atac-seq">Complete Guide to Understanding and Using ATAC-Seq</a></p>
-<section id="experiment-considerations" class="level3" data-number="2.0.1">
-<h3 data-number="2.0.1" class="anchored" data-anchor-id="experiment-considerations"><span class="header-section-number">2.0.1</span> Experiment considerations</h3>
+<section id="experiment-considerations" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="experiment-considerations"><span class="header-section-number">2.1</span> Experiment considerations</h2>
 <p>Whilst omniATAC-seq offers superior data generation than traditional techniques, it is important to consider the biological questions being asked prior to the commencement of any experiments. Examples of biological questions ATAC-seq can help answer including How do chromatin accessibility landscapes differ between cell types? Which transcription factors are likely driving this gene program? Are there stable accessibility changes in memory or trained cells compared with naïve cells after an initial stimulus?</p>
 <p>Basic experimental design recommendations for ATAC-seq include the following:</p>
 <ol type="1">
@@ -321,10 +302,10 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<p>Image source: <span class="citation" data-cites="Grandi2022">(<a href="#ref-Grandi2022" role="doc-biblioref">Grandi et al. 2022</a>)</span></p>
+<p>Image source: <span class="citation" data-cites="Grandi2022">(Grandi et al. 2022)</span></p>
 </section>
-<section id="library-generation" class="level3" data-number="2.0.2">
-<h3 data-number="2.0.2" class="anchored" data-anchor-id="library-generation"><span class="header-section-number">2.0.2</span> Library generation</h3>
+<section id="library-generation" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="library-generation"><span class="header-section-number">2.2</span> Library generation</h2>
 <p>A significant advantage of ATAC-seq over traditional techniques is that tagmented DNA can be quickly and easily used to generate your libraries of interest requiring only a single PCR amplification step following tagmentation. ATAC-seq samples are sequenced on next-gen sequencing machines allowing for multiplexing of multiple samples into the single sequencing run offering superior cost efficiency than other techniques. Briefly, individual ATAC-seq samples are barcoded with a common i5 primer and unique i7 primers that allow for the demultiplexing of sample sequences. The number of unique i7 primers included in your experiment will depend on the number of samples within your experiment. Unique i5 primers can also be included to expand the number of samples that can be sequenced together. This should be discussed with your sequence facility prior to library generation to ensure that the combinations of i5 and i7 primers used are compatible with your NGS machine.</p>
 <p>The number of optimal PCR cycles when generating ATAC-seq libraries is critical to minimise overamplification of ATAC-seq libraries resulting in fewer PCR duplicates removed during data curation. The number of optimal PCR cycles per library can be determined by RT-qPCR, whereby libraries are partially amplified before running on a qPCR machine with common Illumina sequencing primers which bind a common sequence that is present in tagmented DNA. This step also offers a great QC metric of your ATAC-seq libraries as only tagmented DNA will produce a signal in your library allow for you to detect if your ATAC-seq samples have worked. Briefly and outlined in (https://www.med.upenn.edu/kaestnerlab/assets/user-content/documents/ATAC-seq-Protocol-(Omni)-Kaestner-Lab.pdf) The number of additional PCR cycles per library can be determined by taking, plot fluorescence versus cycle and determine the cycle number that corresponds to one-third of the maximum fluorescent intensity (See figure below for an example).</p>
 <div class="cell">
@@ -336,7 +317,7 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<p>Image source: <span class="citation" data-cites="Buenrostro2015">(<a href="#ref-Buenrostro2015" role="doc-biblioref">Buenrostro et al. 2015</a>)</span></p>
+<p>Image source: <span class="citation" data-cites="Buenrostro2015">(Buenrostro et al. 2015)</span></p>
 <p>Each ATAC-seq library should be quantified and fragments should be analysed using a fragment analyser. Quantification of each library is necessary to ensure sufficient material is present for sequencing (1-20ng of DNA per sample). The exact of DNA present in each library will depend on the number of cells used, the cell type of interest, the efficiency of tagmention and the number of cycles used to amplify the libraries, however, a recommendation is usually between 10-40 ng/ul.</p>
 <p>Often ATAC-seq libraries ran on a bioanalyzer will reveal many smaller and larger fragments that will need to be removed prior to sequencing using double-sided ampure bead size exclusion, this should be discussed with your sequencing facility prior to submission for sequencing. The ideal fragment sizes needed for ATAC-seq include fragments between 200-500bp representing nucleosome free and mononucleosome regions of interest (see below a figure from (https://www.activemotif.com/blog-library-qc).</p>
 <div class="cell">
@@ -350,8 +331,8 @@ div.csl-indent {
 </div>
 <p>Image source: <a href="ttps://www.activemotif.com/blog-library-qc">Library QC for ATAC-Seq and CUT&amp;Tag</a></p>
 </section>
-<section id="sequencing-considerations" class="level3" data-number="2.0.3">
-<h3 data-number="2.0.3" class="anchored" data-anchor-id="sequencing-considerations"><span class="header-section-number">2.0.3</span> Sequencing considerations</h3>
+<section id="sequencing-considerations" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="sequencing-considerations"><span class="header-section-number">2.3</span> Sequencing considerations</h2>
 <p>ATAC-seq sequencing prioritizes paired-end reads with 50-75 bp lengths to capture nucleosome positioning and fragment sizes up to 1 kb. Target 50 million mapped reads per sample for peak calling (200 million+ for footprinting), using Illumina platforms like NovaSeq, NextSeq, or MiSeq.</p>
 <p>Limitations of ATAC-seq</p>
 <p>Whilst ATAC-seq is a great technique for understanding how chromatin accessibility changes between cell populations, there are some limitations of the technique that must be considered.</p>
@@ -377,14 +358,6 @@ div.csl-indent {
 </ul>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list">
-<div id="ref-Buenrostro2015" class="csl-entry" role="listitem">
-Buenrostro, Jason D., Beijing Wu, Howard Y. Chang, and William J. Greenleaf. 2015. <span>“ATAC-Seq: A Method for Assaying Chromatin Accessibility Genome-Wide.”</span> <em>Current Protocols in Molecular Biology</em> 109 (1): 21.29.1–9. https://doi.org/<a href="https://doi.org/10.1002/0471142727.mb2129s109">https://doi.org/10.1002/0471142727.mb2129s109</a>.
-</div>
-<div id="ref-Grandi2022" class="csl-entry" role="listitem">
-Grandi, Fiorella C., Hailey Modi, Lucas Kampman, and M. Ryan Corces. 2022. <span>“Chromatin Accessibility Profiling by ATAC-Seq.”</span> <em>Nature Protocols</em> 17 (6): 1518–52. <a href="https://doi.org/10.1038/s41596-022-00692-9">https://doi.org/10.1038/s41596-022-00692-9</a>.
-</div>
-</div>
 </section>
 
 </main> <!-- /main -->
