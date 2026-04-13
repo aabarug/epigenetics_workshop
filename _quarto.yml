@@ -3,9 +3,9 @@ project:
   output-dir: _book
 
 book:
-  title: "Epigenetics Workshop Monash"
+  title: "Epigenetics Workshop"
   author: "Adele Barugahare, Daniel Thiele, David Chisanga, Pushkar Dackle, Giulia Iacono"
-  date: "20/03/2026"
+  date: "03/20/2026"
   chapters:
     - index.qmd
     - 00_introduction.qmd
@@ -25,7 +25,6 @@ book:
         - 10_cuttag_peak_calling.qmd
         - 11_cuttag_differential_accessibilty.qmd
         - 12_cuttag_downstream_analysis.qmd
-
 bibliography: references.bib
 
 format:

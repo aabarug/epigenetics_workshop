@@ -14,4 +14,4 @@
 
 -   Goal of the analysis: identify differential accessible regions or TF/nucleosome footprinting?
 
-[![Chromatin accessibility profiling by ATAC-seq. Image source: <https://www.nature.com/articles/s41596-022-00692-9>](images/fig_1_atacseq_schematic_springer.webp){#fig-atacseq_protocol_2 fig-align="center"}](https://www.nature.com/articles/s41596-022-00692-9)
+[![Chromatin accessibility profiling by ATAC-seq. Image source: \<https://www.nature.com/articles/s41596-022-00692-9\>](images/fig_1_atacseq_schematic_springer.webp){#fig-atacseq_protocol_2 fig-align="center"}](https://www.nature.com/articles/s41596-022-00692-9)
