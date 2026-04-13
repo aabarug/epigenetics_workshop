@@ -52,7 +52,7 @@ The number of optimal PCR cycles when generating ATAC-seq libraries is critical 
 
 ```{r}
 #| echo: false
-knitr::include_graphics("images/fig_fragment_size.png")
+knitr::include_graphics("images/fig_fragment_size.jpg")
 ```
 
 Image source: [ATAC-seq: A Method for Assaying Chromatin Accessibility Genome-Wide](https://pmc.ncbi.nlm.nih.gov/articles/PMC4374986/)
