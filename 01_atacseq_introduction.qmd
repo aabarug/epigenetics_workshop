@@ -1,105 +1,110 @@
 # Introduction
 
+The mapping of the chromatin landscape provides insight into how cells are primed for gene regulation, including whether regulatory elements are in an active (“on”) or inactive (“off”) state under different biological conditions. Understanding chromatin accessibility therefore offers a deeper understanding of cellular differentiation states and regulatory potential that may not be captured by gene expression data alone.
 
-The mapping of the chromatin landscape can help understand how cells are poised for gene regulation including when a gene element is turned ‘off’ or ‘on’ based on a number of biological conditions. Understanding chromatin accessibility, therefore provides a deeper understanding of a cell's differentiation state often not observed by gene expression data alone.
+Traditional methods used to study chromatin accessibility, such as FAIRE-seq and DNase-seq, typically require large numbers of cells and often suffer from low signal-to-background ratios. As a result, these approaches can require greater sequencing depth and larger sample sizes to achieve sufficient statistical power.
 
-Whilst traditional techniques used to study chromatin accessibility include FAIR-seq and DNASE-seq, these techniques require large amounts of cell numbers and often have very low signal-to-background requiring many more samples in order to generate statistically significant results. 
-
-Recent advances in technology allow for the mapping of chromatin changes in very small cell numbers, high signal-to-noise and low time and cost investment. This has led to the development of the assay for transposase-accessible chromatin by sequencing or ATAC-seq which leverages an overactive form of transposes 5 (Tn5) which binds to exposed chromatin elements and cleaves in situ depositing custom DNA probes for ease of PCR amplification (tagmentation) (Figure 1). ATAC-seq can be used to study chromatin accessibility in a variety of cell populations including directly ex vivo or in vitro cultures. ATAC-seq has been further optimised and replaced with omniATAC-seq which offers better results with fewer cells needed. 
+Recent technological advances have enabled the profiling of chromatin accessibility from very small numbers of cells with improved signal-to-noise ratios, while also reducing both time and cost requirements. This led to the development of ATAC-seq, which uses a hyperactive Tn5 transposase enzyme to simultaneously cleave accessible regions of chromatin and insert sequencing adapters in situ through a process known as tagmentation (see figure below). ATAC-seq can be applied to a wide range of cell populations, including freshly isolated ex vivo samples and in vitro cultured cells. Further optimisation of the protocol led to the development of Omni-ATAC-seq, which improves data quality and enables robust chromatin accessibility profiling from even fewer input cells.
 
 ```{r}
 #| echo: false
 knitr::include_graphics("images/fig_active_motif_atacseq.png")
 ```
-
 Image Source: [Complete Guide to Understanding and Using ATAC-Seq](https://www.activemotif.com/blog-atac-seq)
 
-## Experiment considerations
+## Experimental considerations
 
-Whilst omniATAC-seq offers superior data generation than traditional techniques, it is important to consider the biological questions being asked prior to the commencement of any experiments. Examples of biological questions ATAC-seq can help answer including How do chromatin accessibility landscapes differ between cell types? Which transcription factors are likely driving this gene program? Are there stable accessibility changes in memory or trained cells compared with naïve cells after an initial stimulus?
+Although Omni-ATAC-seq offers substantial improvements in data quality compared with traditional chromatin accessibility assays, careful experimental design remains critical. Before beginning any experiment, it is important to clearly define the biological question being addressed. Examples of questions that ATAC-seq can help answer include: 
 
-Basic experimental design recommendations for ATAC-seq include the following:
+* How do chromatin accessibility landscapes differ between cell types? 
+* Which transcription factors are likely driving a particular gene program? 
+* Are accessibility changes maintained in memory or trained cells following an initial stimulus?
 
-1. At least 2 biological replicates per condition
-* The more biological replicates the more robust your statistical tests downstream will be
+Basic experimental design considerations for ATAC-seq include the following:
 
-2. Standardise cell numbers per condition where possible
-* Ensures parody across samples during tagmentation and library generation.
+* Include at least two biological replicates per condition.
+* Increasing the number of biological replicates improves the robustness and statistical power of downstream analyses.
+* Standardise input cell numbers across conditions wherever possible to ensure consistency during tagmentation and library preparation.
+* For experiments performed across multiple timepoints, include a common biological control sample to help account for technical and batch variation over time.
+* To minimise batch effects, use consistent reagents and buffers across experiments, and where possible, perform library preparation for all samples simultaneously following tagmentation.
+* ATAC-seq is a bulk population-based assay and is therefore sensitive to cellular heterogeneity. Enrichment of the target population is highly recommended, typically through flow cytometric sorting, to ensure a homogeneous and viable cell population is analysed.
 
-3. ATAC-seq experiments performed across different timepoints should have a common biological sample for controlling for technique and time batch effects.
-* To avoid unnecessary batch effects the same buffers should be used across experiments and library generation following tagmention should be completed together across all samples sequenced.
+ATAC-seq is a bulk population-based assay and is therefore sensitive to cellular heterogeneity within the sample being analysed. To minimise background noise and improve biological interpretability, enrichment of the target cell population is strongly recommended prior to library preparation. In most cases, this is achieved through flow cytometric cell sorting to isolate a homogeneous and viable population of cells for downstream analysis.
 
-ATAC-seq is a bulk analysis of a population of interest requiring the user to enrich their populations of interest to avoid noise that may be caused from heterogeneity within the tested populations. It is recommended that samples be sorted via flow cytometry to ensure a homogeneous and live population of cells are used throughout the technique.
+While chromatin accessibility profiling provides valuable regulatory information, ATAC-seq data are most informative when integrated with gene expression data generated from the same cell populations, such as RNA-seq or RT-qPCR data. Integrating these datasets enables the identification of positive control loci with known patterns of gene upregulation or downregulation, helping to validate whether accessibility changes correspond to expected transcriptional activity. Without complementary expression data, it can be challenging to confidently interpret the biological significance of chromatin accessibility changes alone.
 
-Mapping chromatin accessibility can provide useful information; it is recommended that this data be paired with gene expression data from the same populations, this can be RNA-seq or even RT-PCR data, to better understand how chromatin accessibility changes can influence gene expression patterns. Why is this useful? It provides positive control gene loci that you know are upregulated or downregulated in your cell populations of interest to understand better if your ATAC-seq experiment was successful. Without this, it can be hard to form biological conclusions on chromatin accessibility alone. 
+Another important consideration is the type of downstream analysis planned for the dataset. Many biological questions can be addressed through standard differential accessibility analysis between cell types or experimental conditions. However, more advanced analyses, such as transcription factor footprinting or nucleosome positioning analysis, require substantially greater sequencing depth and higher-quality data. These analytical goals should therefore be considered during experimental design to ensure sufficient sequencing coverage is achieved.
 
-Another important consideration when designing your experiment is the types of analysis you wish to complete downstream of your ATAC-seq. Whilst most biological questions can be answered with simple differential analysis of accessible regions between two cell types or states, some biological questions demand more robust forms of analysis such as footprinting of transcription factor binding or nucleosome mapping. These complex analyses require significantly more sequencing depth than differential analysis alone, and thus will influence your experimental design to ensure sufficient sequencing depth is achieved to answer these questions. 
-
-Lastly, in attempting omniATAC-seq on your cell population of interest, there must be significant optimisation in nuclei extraction protocols as different cell-types require different cell lysis conditions. If cell nuclei are underextracted it will result in increased mitochondrial DNA contamination and inefficient sequencing data and costs. Overextraction of nuclei can result in nuclei clumping leading to decreased signal-to-background and even tagmentation failure. Time must be invested to ensure intact nuclei can be extracted from your cell population of interest existing nuclei extraction protocols can be used for ATAC-seq.
+Finally, optimisation of nuclei extraction is a critical step when establishing an Omni-ATAC-seq workflow for a new cell type. Different cell populations often require different lysis conditions to efficiently isolate intact nuclei. Insufficient nuclei extraction can lead to elevated mitochondrial DNA contamination and reduced sequencing efficiency, whereas excessive lysis may cause nuclear clumping, reduced signal-to-background ratios, and potential tagmentation failure. Considerable optimisation may therefore be required to identify conditions that consistently yield intact nuclei suitable for ATAC-seq library preparation. Existing nuclei isolation protocols can often serve as a useful starting point for optimisation.
 
 ```{r}
 #| echo: false
 knitr::include_graphics("images/fig_chromatin_profiling.png")
 ```
-
 Image source: [Chromatin accessibility profiling by ATAC-seq](https://www.nature.com/articles/s41596-022-00692-9)
 
 ## Library generation
 
-A significant advantage of ATAC-seq over traditional techniques is that tagmented DNA can be quickly and easily used to generate your libraries of interest requiring only a single PCR amplification step following tagmentation. ATAC-seq samples are sequenced on next-gen sequencing machines allowing for multiplexing of multiple samples into the single sequencing run offering superior cost efficiency than other techniques. Briefly, individual ATAC-seq samples are barcoded with a common i5 primer and unique i7 primers that allow for the demultiplexing of sample sequences. The number of unique i7 primers included in your experiment will depend on the number of samples within your experiment. Unique i5 primers can also be included to expand the number of samples that can be sequenced together. This should be discussed with your sequence facility prior to library generation to ensure that the combinations of i5 and i7 primers used are compatible with your NGS machine.
+A major advantage of ATAC-seq over traditional chromatin accessibility assays is the simplicity and speed of library preparation. Following tagmentation, sequencing-ready libraries can be generated with only a single PCR amplification step, reducing both hands-on time and overall workflow complexity. In addition, ATAC-seq libraries are compatible with next-generation sequencing (NGS) platforms, enabling multiplexing of many samples within a single sequencing run and improving overall cost efficiency.
 
-The number of optimal PCR cycles when generating ATAC-seq libraries is critical to minimise overamplification of ATAC-seq libraries resulting in fewer PCR duplicates removed during data curation. The number of optimal PCR cycles per library can be determined by RT-qPCR, whereby libraries are partially amplified before running on a qPCR machine with common Illumina sequencing primers which bind a common sequence that is present in tagmented DNA. This step also offers a great QC metric of your ATAC-seq libraries as only tagmented DNA will produce a signal in your library allow for you to detect if your ATAC-seq samples have worked. Briefly and outlined in (https://www.med.upenn.edu/kaestnerlab/assets/user-content/documents/ATAC-seq-Protocol-(Omni)-Kaestner-Lab.pdf) The number of additional PCR cycles per library can be determined by taking, plot fluorescence versus cycle and determine the cycle number that corresponds to one-third of the maximum fluorescent intensity (See figure below for an example).
+Briefly, individual ATAC-seq libraries are indexed using combinations of i5 and i7 sequencing primers. Typically, libraries share a common i5 primer while each sample is assigned a unique i7 index, allowing sequencing reads to be demultiplexed following sequencing. The number of unique index combinations required depends on the total number of samples included in the experiment. Additional unique i5 primers may also be incorporated to further expand multiplexing capacity. Importantly, index combinations should be discussed with the sequencing facility prior to library preparation to ensure compatibility with the sequencing platform being used.
+
+Careful optimisation of PCR amplification cycles during library preparation is critical, as overamplification can increase PCR duplicate rates and reduce overall library complexity. To determine the optimal number of amplification cycles, libraries are commonly partially amplified before being assessed by quantitative PCR (qPCR) using standard Illumina sequencing primers that bind adapter sequences introduced during tagmentation. This step also serves as an important quality control metric, as only successfully tagmented DNA fragments will generate an amplification signal.
+
+One commonly used approach for determining the final number of PCR cycles is outlined in the [Kaestner Lab Omni-ATAC Protocol](https://www.med.upenn.edu/kaestnerlab/assets/user-content/documents/ATAC-seq-Protocol-(Omni)-Kaestner-Lab.pdf). Briefly, fluorescence intensity is plotted against cycle number, and the optimal amplification point is selected at approximately one-third of the maximum fluorescence intensity (see figure below for an example). This approach helps minimise overamplification while ensuring sufficient material is generated for sequencing.
 
 ```{r}
 #| echo: false
 knitr::include_graphics("images/fig_fragment_size.jpg")
 ```
-
 Image source: [ATAC-seq: A Method for Assaying Chromatin Accessibility Genome-Wide](https://pmc.ncbi.nlm.nih.gov/articles/PMC4374986/)
 
+Each ATAC-seq library should be quantified and assessed for fragment size distribution using an instrument such as a bioanalyzer or fragment analyser. Accurate library quantification is important to ensure that sufficient material is available for sequencing, with most sequencing facilities typically requiring between 1–20 ng of DNA per sample. Final library yield can vary substantially depending on factors such as input cell number, cell type, tagmentation efficiency, and the number of PCR amplification cycles performed. However, a recommendation is that ATAC-seq libraries fall within a concentration range of approximately 10–40 ng/µL.
 
-Each ATAC-seq library should be quantified and fragments should be analysed using a fragment analyser. Quantification of each library is necessary to ensure sufficient material is present for sequencing (1-20ng of DNA per sample). The exact of DNA present in each library will depend on the number of cells used, the cell type of interest, the efficiency of tagmention and the number of cycles used to amplify the libraries, however, a recommendation is usually between 10-40 ng/ul.
+Fragment size analysis is also an important quality control step prior to sequencing. ATAC-seq libraries often contain unwanted small fragments, such as primer dimers, as well as excessively large fragments that may negatively impact sequencing performance. These unwanted fragments can be removed using double-sided AMPure bead size selection prior to sequencing, although exact requirements should be confirmed with the sequencing facility.
 
-Often ATAC-seq libraries ran on a bioanalyzer will reveal many smaller and larger fragments that will need to be removed prior to sequencing using double-sided ampure bead size exclusion, this should be discussed with your sequencing facility prior to submission for sequencing. The ideal fragment sizes needed for ATAC-seq include fragments between 200-500bp representing nucleosome free and mononucleosome regions of interest (see below a figure from (https://www.activemotif.com/blog-library-qc).  
+Ideally, ATAC-seq libraries should display a characteristic fragment distribution enriched for fragments between approximately 200–500 bp, corresponding to nucleosome-free and mononucleosome-associated regions of accessible chromatin (see figure below). In high-quality libraries, periodic banding patterns representing mono-, di-, and trinucleosome fragments may also be observed, reflecting underlying chromatin structure.
 
 ```{r}
 #| echo: false
 knitr::include_graphics("images/fig_atac_fragment_profile.png")
 ```
-
 Image source: [Library QC for ATAC-Seq and CUT&Tag](ttps://www.activemotif.com/blog-library-qc)
 
 ## Sequencing considerations
 
-ATAC-seq sequencing prioritizes paired-end reads with 50-75 bp lengths to capture nucleosome positioning and fragment sizes up to 1 kb. Target 50 million mapped reads per sample for peak calling (200 million+ for footprinting), using Illumina platforms like NovaSeq, NextSeq, or MiSeq.
+For most ATAC-seq experiments, paired-end sequencing with read lengths of 50–75 bp is recommended. Paired-end sequencing enables accurate estimation of fragment sizes and improves the identification of nucleosome positioning patterns, with accessible chromatin fragments typically ranging from nucleosome-free regions to fragments approaching 1 kb in length.
 
-Limitations of ATAC-seq
+Sequencing depth requirements will depend on the downstream analyses planned for the experiment. For standard peak calling and differential accessibility analyses, approximately 50 million mapped reads per sample is generally recommended. More advanced analyses, such as transcription factor footprinting, typically require substantially deeper sequencing coverage, often exceeding 200 million mapped reads per sample. ATAC-seq libraries are commonly sequenced on Illumina platforms such as the NovaSeq, NextSeq, or MiSeq depending on sample throughput and project requirements.
 
-Whilst ATAC-seq is a great technique for understanding how chromatin accessibility changes between cell populations, there are some limitations of the technique that must be considered. 
+## Limitations of ATAC-seq
 
-1. ATAC-seq only discerns changes in chromatin accessibility but provides no information of the drivers of these changes such as epigenetic marks like DNA methylation of histone modifications. Without histone modification data ATAC-seq can not be used to define regulatory elements such as active or poised enhancers confidently.
+* Although ATAC-seq is a powerful technique for studying chromatin accessibility across different cell populations and conditions, several important limitations should be considered when interpreting results.
+* ATAC-seq measures chromatin accessibility but does not directly identify the molecular mechanisms driving these accessibility changes. For example, it does not provide information on epigenetic modifications such as DNA methylation or histone modifications. As a result, ATAC-seq alone cannot confidently distinguish between regulatory elements such as active, poised, or repressed enhancers without complementary datasets.
+* ATAC-seq does not provide information about three-dimensional chromatin organisation, including chromatin looping, topologically associated domains, or long-range regulatory interactions across the genome.
+* Although chromatin accessibility often correlates with gene expression, accessibility changes do not always result in transcriptional changes. Without paired gene expression datasets, such as RNA-seq, it can be difficult to confidently determine the functional consequences of accessibility changes.
+* Motif enrichment and de novo transcription factor binding analyses can identify candidate transcription factors that may regulate observed accessibility patterns. However, these predictions remain indirect and typically require experimental validation using techniques such as ChIP-seq, CUT&Tag, or CUT&Run.
+* The hyperactive Tn5 transposase enzyme used during tagmentation exhibits sequence- and context-dependent biases. Tn5 preferentially inserts into highly accessible DNA and regions resembling transcription factor binding motifs, which can distort accessibility measurements and complicate interpretation of transcription factor footprinting analyses.
+* Bulk ATAC-seq represents an average signal across an entire cell population and therefore cannot resolve cellular heterogeneity. Apparent intermediate accessibility signals at a genomic locus may reflect mixtures of fully accessible and inaccessible cells rather than true intermediate chromatin states.
+* Poor sample viability can negatively impact library quality. Dead or damaged cells may contribute excess mitochondrial DNA contamination, while low-quality nuclei preparations can lead to nuclear clumping, reduced signal-to-background ratios, and tagmentation failure.
 
-2. ATAC-seq provides no 3D chromatin architecture information such as looping, compartments or potential long-range interactions which exist across the genome. 
+```{r}
+#| echo: false
+knitr::include_graphics("images/fig_nuclei_quality.png")
+```
+Image source: [Best practices for working with nuclei](https://kb.10xgenomics.com/s/article/360050780051-What-are-the-best-practices-for-working-with-nuclei-samples-for-3-single-cell-gene-expression)
 
-3. Whilst chromatin accessibility does strongly correlate with gene expression, without paired gene expression data it is impossible to confidently conclude if chromatin changes do lead to changes in gene expression
+## ATAC-seq Output and Data Visualisation
 
-4. De novo Transcription factor binding analysis can provide useful information about potential TFs that may be driving gene expression profiles but these will need to be experimentally validated using ChIP-Seq, CUT&Tag or CUT&Run.
+Common downstream analyses and visualisation approaches used in ATAC-seq studies include:
 
-5. Tn5 transposase has sequence‑ and context‑dependent bias, favoring exposed DNA and TF‑binding‑site‑like regions, so it can under‑represent some occupied regulatory elements and distort footprint‑like signals.
-
-6. Bulk ATAC‑seq cannot resolve heterogeneity within a mixed population; apparent “intermediate” accessibility at a locus may reflect a mixture of fully open and fully closed cells rather than graded regulation.
-
-7. Low viability of cell populations can lead to nuclei clumping and tagmentation failure.
-
-
-- ATAC-seq output and data visualisation
-- Basic graphs with functions.
-- FRiP score
-- PCA plot
-- Pearson correlation heatmap
-- Differentional analysis volcano plots
-- Mapping of genomic elements
-- Heatmap of differential accessible regions
-- Correlation between ATAC-seq and RNA-seq
-
-
+* Fragment size distribution plots
+* Fraction of Reads in Peaks (FRiP) score analysis
+* Principal component analysis (PCA) plots
+* Differential accessibility volcano plots
+* Genomic accessibility tracks displayed in genome browsers
+* Annotation of accessible regions to genomic features
+* Heatmaps of differentially accessible regions
+* Integration and correlation analyses between ATAC-seq and RNA-seq datasets
+* Transcription factor motif enrichment analysis
+* Nucleosome occupancy and positioning analysis
