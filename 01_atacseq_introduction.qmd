@@ -22,12 +22,13 @@ Although Omni-ATAC-seq offers substantial improvements in data quality compared 
 
 Basic experimental design considerations for ATAC-seq include the following:
 
-* Include at least two biological replicates per condition.
-* Increasing the number of biological replicates improves the robustness and statistical power of downstream analyses.
-* Standardise input cell numbers across conditions wherever possible to ensure consistency during tagmentation and library preparation.
-* For experiments performed across multiple timepoints, include a common biological control sample to help account for technical and batch variation over time.
-* To minimise batch effects, use consistent reagents and buffers across experiments, and where possible, perform library preparation for all samples simultaneously following tagmentation.
-* ATAC-seq is a bulk population-based assay and is therefore sensitive to cellular heterogeneity. Enrichment of the target population is highly recommended, typically through flow cytometric sorting, to ensure a homogeneous and viable cell population is analysed.
+* Ideal cell number inputs range between 5x10^3-5x10^4 cells. 1x10^4 cells is a good starting point.  
+* Include at least two biological replicates per condition.  
+* Increasing the number of biological replicates improves the robustness and statistical power of downstream analyses.  
+* Standardise input cell numbers across conditions wherever possible to ensure consistency during tagmentation and library preparation.  
+* For experiments performed across multiple timepoints, include a common biological control sample to help account for technical and batch variation over time.  
+* To minimise batch effects, use consistent reagents and buffers across experiments, and where possible, perform library preparation for all samples simultaneously following tagmentation.  
+* ATAC-seq is a bulk population-based assay and is therefore sensitive to cellular heterogeneity. Enrichment of the target population is highly recommended, typically through flow cytometric sorting, to ensure a homogeneous and viable cell population is analysed.  
 
 ATAC-seq is a bulk population-based assay and is therefore sensitive to cellular heterogeneity within the sample being analysed. To minimise background noise and improve biological interpretability, enrichment of the target cell population is strongly recommended prior to library preparation. In most cases, this is achieved through flow cytometric cell sorting to isolate a homogeneous and viable population of cells for downstream analysis.
 
@@ -36,6 +37,8 @@ While chromatin accessibility profiling provides valuable regulatory information
 Another important consideration is the type of downstream analysis planned for the dataset. Many biological questions can be addressed through standard differential accessibility analysis between cell types or experimental conditions. However, more advanced analyses, such as transcription factor footprinting or nucleosome positioning analysis, require substantially greater sequencing depth and higher-quality data. These analytical goals should therefore be considered during experimental design to ensure sufficient sequencing coverage is achieved.
 
 Finally, optimisation of nuclei extraction is a critical step when establishing an Omni-ATAC-seq workflow for a new cell type. Different cell populations often require different lysis conditions to efficiently isolate intact nuclei. Insufficient nuclei extraction can lead to elevated mitochondrial DNA contamination and reduced sequencing efficiency, whereas excessive lysis may cause nuclear clumping, reduced signal-to-background ratios, and potential tagmentation failure. Considerable optimisation may therefore be required to identify conditions that consistently yield intact nuclei suitable for ATAC-seq library preparation. Existing nuclei isolation protocols can often serve as a useful starting point for optimisation.
+
+For more guidelines it is recommended that users read the [ENCODE guidelines](https://www.encodeproject.org/atac-seq/) for ATAC-seq, a great resource for many NGS techniques.
 
 ```{r}
 #| echo: false
@@ -99,12 +102,13 @@ Image source: [Best practices for working with nuclei](https://kb.10xgenomics.co
 Common downstream analyses and visualisation approaches used in ATAC-seq studies include:
 
 * Fragment size distribution plots
-* Fraction of Reads in Peaks (FRiP) score analysis
+* Fragments of reads in peaks (FRiP) score: Visualisation of data quality. Typical guidelines indicate that a FRiP score above 0.3 indicating 30% of reads in peaks is sufficient for high-quality ATAC-seq data.
 * Principal component analysis (PCA) plots
-* Differential accessibility volcano plots
+* Spearman and Pearson correlation heatmaps:  visualisation of sample similarities similar and often better than PCA. Can be used to make broad statements on sample reproducibility with replicates ideally sitting closest together and similarities between cell populations also shown.
+* Differential accessibility volcano plots: Basic visualisation of differential region accessibility (DAR) between two cell populations. Can be used to quickly illustrate the number and bias of gene regions that either open or close.
 * Genomic accessibility tracks displayed in genome browsers
-* Annotation of accessible regions to genomic features
-* Heatmaps of differentially accessible regions
-* Integration and correlation analyses between ATAC-seq and RNA-seq datasets
-* Transcription factor motif enrichment analysis
+* Annotation of accessible regions to genomic features: Provides information about the genomic distribution of differential accessible regions. Often useful when determining if differential genomic regions are biassed towards certain genomic elements such as TSS or intergenic regions which may suggest changes in enhancer regions.
+* Heatmaps of differentially accessible regions: Visualisation of DARs across multiple different cell populations. Often useful when determining whether DARs are shared or unique across more than one population of interest. Can be used to visualise DAR patterns.
+* Integration and correlation analyses between ATAC-seq and RNA-seq datasets: Basic function to determine how changes in accessible correlate with gene expression changes. Given that multiple regions can be mapped to the same gene, correlations are often filtered on DAR around TSS.
+* De Novo transcription factor motif enrichment analysis: Tools such as HOMER can be used to determine the enrichment of certain known and unknown TF motifs that are enriched amongst regions of interest. Whilst useful for understanding potential TF involved in driving gene expression or chromatin remodelling, these are de novo predictions and should be further validated downstream. Also tools often limited by the available TF binding datasets like ChIP-seq, CUT&TAG and CUT&RUN or known TF binding motifs within the tools reference dataset.
 * Nucleosome occupancy and positioning analysis
