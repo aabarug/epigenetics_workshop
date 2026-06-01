@@ -4,4 +4,7 @@
 renv/
 renv.lock
 tem_renv
+images/fig_blackboard_2019.jpg
+13_atacseq_quick_overview.qmd
+14_cuttag_quick_overview.qmd
 tmp_renv.lock
