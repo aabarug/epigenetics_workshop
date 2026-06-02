@@ -18,7 +18,7 @@ jobs:
         with:
           use-public-rspm: true
           r-version: '4.5.1'
-      - run: Rscript -e 'install.packages("pak")'
+      - run: Rscript -e 'install.packages("pak", repos = "https://mirror.aarnet.edu.au/pub/CRAN/")'
       - run: Rscript -e 'pak::pkg_install(c("fs", "rmarkdown", "knitr", "dplyr", "BiocManager"))'
       - run: Rscript -e 'BiocManager::install(c("limma", "edgeR", "GenomicRanges", "Rsubread"))'
 
