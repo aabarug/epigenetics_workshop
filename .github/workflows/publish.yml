@@ -12,9 +12,10 @@ jobs:
       contents: write
     steps:
       - name: Install Dependencies
-        run:
+        run: |
           sudo apt-get update
           sudo apt-get install -y libuv1-dev
+
       - name: Check out repository
         uses: actions/checkout@v4
 
