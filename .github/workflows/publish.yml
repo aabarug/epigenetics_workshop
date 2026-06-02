@@ -11,6 +11,10 @@ jobs:
     permissions:
       contents: write
     steps:
+      - name: Install Dependencies
+        run:
+          sudo apt-get update
+          sudo apt-get install -y libuv1-dev
       - name: Check out repository
         uses: actions/checkout@v4
 
@@ -18,8 +22,7 @@ jobs:
         with:
           use-public-rspm: true
           r-version: '4.5.1'
-      - run: Rscript -e 'install.packages("pak", repos = "https://mirror.aarnet.edu.au/pub/CRAN/")'
-      - run: Rscript -e 'pak::pkg_install(c("fs", "rmarkdown", "knitr", "dplyr", "BiocManager"))'
+      - run: Rscript -e 'install.packages(c("fs", "rmarkdown", "knitr", "dplyr", "BiocManager"), repos = "https://mirror.aarnet.edu.au/pub/CRAN/")'
       - run: Rscript -e 'BiocManager::install(c("limma", "edgeR", "GenomicRanges", "Rsubread"))'
 
       - name: Set up Quarto
